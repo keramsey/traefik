@@ -1,4 +1,4 @@
-version: '3.3'
+version: '3.9'
 services:
   traefik:
     # Use the latest Traefik image
@@ -12,7 +12,6 @@ services:
       # Use the public network created to be shared between Traefik and
       # any other service that needs to be publicly available with HTTPS
       - traefik-public
-      - sp-net
     deploy:
       placement:
         constraints:
@@ -92,6 +91,4 @@ networks:
   # Use the previously created public network "traefik-public", shared with other
   # services that need to be publicly available via this Traefik
   traefik-public:
-    external: true
-  sp-net:
     external: true
